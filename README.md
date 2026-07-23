@@ -38,7 +38,6 @@ PyLetter/
 │   └── Project tests
 │
 ├── .env.example
-├── .gitignore
 ├── requirements.txt
 └── README.md
 ```
@@ -50,7 +49,7 @@ PyLetter/
 Clone the repository:
 
 ```bash
-git clone https://github.com/username/PyLetter.git
+git clone https://github.com/mattiamarciano-dev/PyLetter
 ```
 
 Enter the project folder:
@@ -108,7 +107,7 @@ The `.env` file contains sensitive information and must not be uploaded to GitHu
 Start PyLetter:
 
 ```bash
-python src/main.py
+python src/PyLetter.py
 ```
 
 The application will:
@@ -134,6 +133,7 @@ The database contains:
 - Sending information
 
 The database is created automatically when the application starts.
+To add or edit users you can use a ìn external SQLite DB viewer or editor.
 
 ---
 

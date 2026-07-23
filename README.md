@@ -49,7 +49,7 @@ PyLetter/
 Clone the repository:
 
 ```bash
-git clone https://github.com/mattiamarciano-dev/PyLetter
+git clone https://github.com/mattiamarciano-dev/PyLetter.git
 ```
 
 Enter the project folder:

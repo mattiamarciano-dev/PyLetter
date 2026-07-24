@@ -11,9 +11,10 @@ class ConsoleController:
         table.add_column("INDEX")
         table.add_column("ID")
         table.add_column("EMAIL")
+        table.add_column("LANGUAGE")
         table.add_column("HOUR")
         table.add_column("CATEGORY")
         table.add_column("LAST SENT")
         for index, user in enumerate(users):
-            table.add_row(str(index), user.id, user.email, str(user.hour), user.news_category.name, user.last_sent)
+            table.add_row(str(index), user.id, user.email, user.language.upper(), str(user.hour), user.news_category.name, user.last_sent)
         console.print(table)

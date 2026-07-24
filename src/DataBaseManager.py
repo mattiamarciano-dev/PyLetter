@@ -11,7 +11,7 @@ class DataBaseManager:
         self.create_table()
     
     def equal_users(self, user1: User, user2: User) -> bool:
-        return user1.id == user2.id and user1.email == user2.email and user1.hour == user2.hour and user1.news_category.value == user2.news_category.value and user1.last_sent == user2.last_sent 
+        return user1.id == user2.id and user1.email == user2.email and user1.hour == user2.hour and user1.news_category.value == user2.news_category.value and user1.last_sent == user2.last_sent and user1.language == user2.language
     
     def equal_lists(self, list1: list[User], list2: list[User]) -> bool:
         if len(list1) != len(list2):
@@ -30,12 +30,14 @@ class DataBaseManager:
                 email = ?,
                 category = ?,
                 hour = ?,
+                language = ?,
                 last_sent = ?
             WHERE id = ?
         """, (
             user.email,
             user.news_category.value,
             user.hour,
+            user.language,
             user.last_sent,
             user.id
         ))
@@ -49,10 +51,12 @@ class DataBaseManager:
             id = user[0]
             email = user[1]
             hour = user[2]
-            cat = Categories[user[3].upper()]
-            last_sent = user[4]
+            language = user[3]
+            cat = Categories[user[4].upper()]
+            last_sent = user[5]
             data = User(id, email, hour, cat)
             data.last_sent = last_sent
+            data.language = language
             users.append(data)
         return users
 
@@ -62,6 +66,7 @@ class DataBaseManager:
             id TEXT PRIMARY KEY,
             email TEXT,
             hour INTEGER,
+            language TEXT,
             category TEXT,
             last_sent TEXT
         )

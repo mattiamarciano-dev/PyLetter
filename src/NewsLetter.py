@@ -1,3 +1,4 @@
+from Article import Article
 from DataBaseManager import DataBaseManager
 from EmailSender import EmailSender
 from NewsGetter import NewsGetter
@@ -7,6 +8,8 @@ from ContentFormatter import ContentFormatter
 from ConsoleController import ConsoleController
 from User import User
 from Logger import Logger
+from Translator import Translator
+from Languages import Languages
 
 import time
 import os
@@ -68,9 +71,26 @@ class NewsLetter:
             for user in self.users:
                 if user.hour == TimeGetter.get_current_hour() and user.last_sent != current_day:
                     articles = getter.get_news(user.news_category)
+                    translated = []
                     Logger.print(f"ARTICLES FOUND FOR {user.email}: {len(articles)}")
                     Logger.log(f"ARTICLES FOUND FOR {user.email}: {len(articles)}")
                     content = ""
+
+                    if user.language != "en":
+                        Logger.print(f"LANGUAGE FOUND FOR {user.email}: {user.language}")
+                        Logger.log(f"LANGUAGE FOUND FOR {user.email}: {user.language}")
+                        for index, article in enumerate(articles):
+                            title = Translator.translate(article.title, Languages.ENGLISH, user.language)
+                            Logger.print(f"TRANSLATION FOUND FOR {user.email}: {title}")
+                            Logger.log(f"TRANSLATION FOUND FOR {user.email}: {title}")
+                            description = Translator.translate(article.content, Languages.ENGLISH, user.language)
+                            Logger.print(f"TRANSLATION FOUND FOR {user.email}")
+                            Logger.log(f"TRANSLATION FOUND FOR {user.email}")
+                            translated.append(Article(title, article.author, article.source, description, article.url, article.img_url))
+                            Logger.print(f"FULL ARTICLE TRANSLATION FOUND FOR {user.email}")
+                            Logger.log(f"FULL ARTICLE TRANSLATION FOUND FOR {user.email}")
+
+                        articles = translated.copy()
 
                     for index, article in enumerate(articles):
                         content = content + ContentFormatter.get_formatted_content(article, index)

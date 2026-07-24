@@ -135,7 +135,7 @@ The database contains:
 - Sending information
 
 The database is created automatically when the application starts.
-To add or edit users you can use a ìn external SQLite DB viewer or editor.
+To add or edit users you can use an external SQLite DB viewer or editor.
 
 ---
 

@@ -15,6 +15,7 @@ The system allows users to configure their email address, preferred news categor
 - 📰 News retrieval through News API
 - 🕒 Personalized delivery time for each user
 - 🗂️ Category-based news selection
+- 🌎 Automatic articles translation
 - 🗄️ SQLite database storage
 - 📝 Automatic activity logging
 - 🔐 Environment variable configuration
@@ -116,10 +117,12 @@ The application will:
 
 1. Load registered users
 2. Check their delivery time
-3. Retrieve news based on category
-4. Generate the newsletter
-5. Send the email
-6. Save activity logs
+3. Check their preferred language
+4. Retrieve news based on category
+5. Generate the newsletter
+6. Translate every article
+7. Send the email
+8. Save activity logs
 
 ---
 
@@ -131,6 +134,7 @@ The database contains:
 
 - User email
 - Preferred news category
+- Preferred language
 - Delivery hour
 - Sending information
 

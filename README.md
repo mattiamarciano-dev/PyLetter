@@ -1,10 +1,10 @@
 # PyLetter 📧
 
-PyLetter is an automated newsletter system written in Python that sends personalized daily emails containing news based on the user's selected category and delivery time.
+PyLetter is an automated newsletter system written in Python that sends personalized daily emails containing news based on the user's selected category and delivery time. The newsletter doesn't have a custom email, so you are going to need to use one of your own.
 
 To work correctly the system should be always running to be sure of sending every email.
 
-The system allows users to configure their email address, preferred news category, and the hour at which they want to receive their daily newsletter.
+The system allows users to configure their email address, preferred news category, language and the hour at which they want to receive their daily newsletter.
 
 ---
 

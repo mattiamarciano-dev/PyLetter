@@ -1,0 +1,7 @@
+class Indexes:
+    ID_INDEX = 0
+    EMAIL_INDEX = 1
+    HOUR_INDEX = 2
+    LANGUAGE_INDEX = 3
+    CATEGORY_INDEX = 4
+    LAST_SENT_INDEX = 5
